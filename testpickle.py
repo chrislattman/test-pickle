@@ -9,7 +9,7 @@ class PhoneNumber:
         return f"PhoneNumber(phoneType='{self.phoneType}', number='{self.number}')"
 
 
-class PhoneBook:
+class Contact:
     index: int
     firstName: str
     lastName: str
@@ -30,21 +30,21 @@ number2 = PhoneNumber()
 number2.phoneType = "work"
 number2.number = "012-345-6789"
 
-phonebook = PhoneBook()
-phonebook.index = 1
-phonebook.firstName = "John"
-phonebook.lastName = "Smith"
-phonebook.phoneNumbers = [number1, number2]
+contact = Contact()
+contact.index = 1
+contact.firstName = "John"
+contact.lastName = "Smith"
+contact.phoneNumbers = [number1, number2]
 
 # To write to a file:
 # with open("file.bin", "wb") as f:
-#     pickle.dump(phonebook, f)
-dump = pickle.dumps(phonebook)
+#     pickle.dump(contact, f)
+dump = pickle.dumps(contact)
 
 # To read from a file:
 # with open("file.bin", "rb") as f:
 #     recovered = pickle.load(f)
 recovered = pickle.loads(dump)
 
-print(phonebook)
+print(contact)
 print(recovered)

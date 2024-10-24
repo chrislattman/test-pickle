@@ -3,7 +3,7 @@ class PhoneNumber {
     number = "";
 }
 
-class PhoneBook {
+class Contact {
     index = 0;
     firstName = "";
     lastName = "";
@@ -17,17 +17,17 @@ const number2 = new PhoneNumber();
 number2.phoneType = "work";
 number2.number = "012-345-6789";
 
-const phonebook = new PhoneBook();
-phonebook.index = 1;
-phonebook.firstName = "John";
-phonebook.lastName = "Smith";
-phonebook.phoneNumbers = [number1, number2];
+const contact = new Contact();
+contact.index = 1;
+contact.firstName = "John";
+contact.lastName = "Smith";
+contact.phoneNumbers = [number1, number2];
 
 const encoder = new TextEncoder();
-const dump = encoder.encode(JSON.stringify(phonebook));
+const dump = encoder.encode(JSON.stringify(contact));
 
 const decoder = new TextDecoder();
 const recovered = JSON.parse(decoder.decode(dump));
 
-console.log(phonebook);
+console.log(contact);
 console.log(recovered);

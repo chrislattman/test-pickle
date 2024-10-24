@@ -16,35 +16,35 @@ public class TestPickle {
         number2.setPhoneType("work");
         number2.setNumber("012-345-6789");
 
-        PhoneBook phonebook = new PhoneBook();
-        phonebook.setIndex(1);
-        phonebook.setFirstName("John");
-        phonebook.setLastName("Smith");
-        phonebook.setPhoneNumbers(new PhoneNumber[]{number1, number2});
+        Contact contact = new Contact();
+        contact.setIndex(1);
+        contact.setFirstName("John");
+        contact.setLastName("Smith");
+        contact.setPhoneNumbers(new PhoneNumber[]{number1, number2});
 
         byte[] dump = null;
         // To write to a file:
         // FileOutputStream bytesOut = new FileOutputStream("file.bin");
         try (ByteArrayOutputStream bytesOut = new ByteArrayOutputStream();
              ObjectOutputStream out = new ObjectOutputStream(bytesOut)) {
-            out.writeObject(phonebook);
+            out.writeObject(contact);
             out.flush();
             dump = bytesOut.toByteArray();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        PhoneBook recovered = null;
+        Contact recovered = null;
         // To read from a file:
         // FileInputStream bytesIn = new FileInputStream("file.bin");
         try (ByteArrayInputStream bytesIn = new ByteArrayInputStream(dump);
              ObjectInputStream in = new ObjectInputStream(bytesIn)) {
-            recovered = (PhoneBook) in.readObject();
+            recovered = (Contact) in.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 
-        System.out.println(phonebook);
+        System.out.println(contact);
         System.out.println(recovered);
     }
 }
@@ -81,7 +81,7 @@ class PhoneNumber implements Serializable {
     }
 }
 
-class PhoneBook implements Serializable {
+class Contact implements Serializable {
     private int index;
     private String firstName;
     private String lastName;
