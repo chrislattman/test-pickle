@@ -1,5 +1,4 @@
 import pickle
-from typing import List
 
 class PhoneNumber:
     phoneType: str
@@ -13,7 +12,7 @@ class Contact:
     index: int
     firstName: str
     lastName: str
-    phoneNumbers: List[PhoneNumber]
+    phoneNumbers: tuple[PhoneNumber, ...]
 
     def __str__(self) -> str:
         string = f"index={self.index} firstName='{self.firstName}' lastName='{self.lastName}' phoneNumbers=["
@@ -34,7 +33,7 @@ contact = Contact()
 contact.index = 1
 contact.firstName = "John"
 contact.lastName = "Smith"
-contact.phoneNumbers = [number1, number2]
+contact.phoneNumbers = (number1, number2)
 
 # To write to a file:
 # with open("file.bin", "wb") as f:
