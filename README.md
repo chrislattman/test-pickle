@@ -8,4 +8,13 @@ JavaScript uses the well-known JavaScript Object Notation (JSON) format to seria
 
 Go de/serializes structs into byte slices and back with the encoding/gob package.
 
-C++ and Rust require third-party libraries for encoding/decoding structures. For C++, make sure to install Boost (Ubuntu: `sudo apt install libboost-all-dev`, macOS: `brew install boost`).
+C++ and Rust require third-party libraries for encoding/decoding structures. Before running the C++ example, create a Python virtual environment and run
+
+```
+pip install conan
+conan profile detect --force
+conan install . --output-folder=build --build=missing -s build_type=Debug
+cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE=build/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Debug
+```
+
+to generate the build files.

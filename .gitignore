@@ -1,5 +1,6 @@
 file.bin
-
+build/
+CMakeUserPresets.json
 
 # Added by cargo
 
