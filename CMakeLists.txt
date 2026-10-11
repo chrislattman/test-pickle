@@ -14,4 +14,6 @@ add_custom_target(run-test-pickle
     COMMAND test-pickle
     DEPENDS test-pickle
     WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+    USES_TERMINAL
+    VERBATIM
 )
